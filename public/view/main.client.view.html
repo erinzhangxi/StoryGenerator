@@ -1,0 +1,336 @@
+<div id="main">
+
+    <nav class="navbar navbar-custom" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-left navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="" ng-click="Model.goToAbout()">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="" ng-click="Model.goToDownload()">Team</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="" ng-click="Model.goToContact()">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!--img class="img-responsive" src="img/profile.png" alt=""-->
+                    <div class="intro-text">
+                        <h1 style="color:white">Story Generator</h1>
+                        <!--hr class="star-light"-->
+                        <br><br>
+                        <!-- Trigger the modal with a button -->
+                        <span class="skills">Type in your or your friend's name and see what's your secret story</span>
+                    </div>
+                    <br><br><br>
+                </div>
+                <button type="button" class="btn btn-default btn-lg" id="myBtn">Click to start your story</button>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="padding:35px 50px;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <!--  <h4><span class="glyphicon glyphicon-lock"></span> LOL </h4> -->
+                </div>
+
+                <div class="modal-body" style="padding:40px 50px;">
+                    <form role="form">
+
+                        <div class="form-group">
+                            <label for="usrname"><span class="glyphicon glyphicon-user"></span> Name</label>
+                            <input type="text" class="form-control" id="usrname" placeholder="Enter your name">
+                        </div>
+
+                        <!-- will uncomment this if want a second user
+                        <div class="form-group">
+                            <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                            <input type="text" class="form-control" id="psw" placeholder="Enter password">
+                        </div>
+                        -->
+                        <form id="buttonGroupForm" method="post" >
+                            <div class="form-group">
+                                <label class="col-xs-3 control-label">Gender</span></label>
+                                <div class="col-xs-9">
+                                    <div class="btn-group" data-toggle="buttons">
+
+
+                                        <div class="checkbox">
+                                            <label><input id="male" type="radio" name="gender" value="male" unchecked>&nbsp Male</label>
+                                        </div>
+
+                                        <div class="checkbox">
+                                            <label><input id="female" type="radio" name="gender" value="female" unchecked>&nbsp Female</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <button ng-click = "Model.generate()" class="btn btn-success btn-block"></span> Generate</button>
+                        <!--button onclick = "go()" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Generate</button-->
+                        <!--button onclick = "clean()" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Clean</button-->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+    <br><br>
+     authors
+    <div class="row">
+
+    <div class="col-sm-4">
+        <p><strong>Name</strong></p><br>
+        <img src="Oceans.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
+    </div>
+
+    <div class="col-sm-4">
+        <p><strong>Name</strong></p><br>
+        <img src="Oceans.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
+    </div>
+
+    <div class="col-sm-4">
+        <p><strong>Name</strong></p><br>
+        <img src="Oceans.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
+    </div>
+    </div>
+
+
+    <!-- About Section -->
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <section class="success" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>About</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row" id ="abouttext" style="display:none;">
+                <div class="col-lg-4 col-lg-offset-2">
+                    <p>Story Generator is a web application project created by three Northeastern students for Husky Hackathon 2016. </p>
+                </div>
+                <div class="col-lg-4">
+                    <p>We want to entertain you by creating story about you or your friend. You could also contribute by sending more story ideas to us.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="success" id="team">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Our Amazing Team</h2>
+                    <h5 class="section-subheading text-muted">3rd year computer science major students</h5>
+                    <br><br>
+                </div>
+
+
+                <div class="row">
+                    <ul>
+                        <li>
+                            <div class="col-sm-4">
+                                <div class="team-member">
+                                    <!--img src="img/team/1.jpg" class="img-responsive img-circle" alt=""-->
+                                    <h4 style="background-color: transparent">Erin Zhang</h4>
+                                    <p class="text-muted">&nbsp &nbsp &nbsp &nbsp &nbsp Full Stack Developer<br>
+                                        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Story Writer</p>
+                                    <!--ul class="list-inline social-buttons">
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                                        </li>
+                                    </ul-->
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="col-sm-4">
+                                <div class="team-member">
+                                    <h4 style="background-color: transparent">Xuanyu Li</h4>
+                                    <p class="text-muted">&nbsp &nbsp &nbsp &nbsp &nbsp Full Stack Developer<br>
+                                        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Mascot :P</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="col-sm-4">
+                                <div class="team-member">
+                                    <h4 style="background-color: transparent">Jacky Chen</h4>
+                                    <p class="text-muted">&nbsp &nbsp &nbsp &nbsp &nbsp Full Stack Developer<br>
+                                        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Backbone</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section class = "success" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Contact Us</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Name</label>
+                                <input ng-model="Model.name" type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Email Address</label>
+                                <input ng-model="Model.email" type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Phone Number</label>
+                                <input ng-model="Model.phone  " type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Message</label>
+                                <textarea ng-model="Model.message" rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <button ng-click="Model.submit()"type="submit" class="btn btn-success btn-lg">Send</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div ng-show="Model.success" class="alert alert-success">{{Model.success}}</div>
+                            <div ng-show="Model.alert" class="alert alert-danger">{{Model.alert}}</div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--footer section-->
+    <div class="footer">
+        <div id="share-buttons" class="container">
+
+            <!-- Email -->
+            <a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://simplesharebuttons.com">
+                <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
+            </a>
+
+            <!-- Facebook -->
+            <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
+                <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+            </a>
+
+            <!-- Google+ -->
+            <a href="https://plus.google.com/share?url=https://simplesharebuttons.com" target="_blank">
+                <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" />
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://simplesharebuttons.com" target="_blank">
+                <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
+            </a>
+
+            <!-- Pinterest -->
+            <a href="javascript:void((function(){%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());}">
+                <img src="https://simplesharebuttons.com/images/somacro/pinterest.png" alt="Pinterest" />
+            </a>
+
+            <!-- Print -->
+            <a href="javascript:" onclick="window.print()">
+                <img src="https://simplesharebuttons.com/images/somacro/print.png" alt="Print" />
+            </a>
+
+            <!-- Reddit -->
+            <a href="http://reddit.com/submit?url=https://simplesharebuttons.com&amp;title=Simple Share Buttons" target="_blank">
+                <img src="https://simplesharebuttons.com/images/somacro/reddit.png" alt="Reddit" />
+            </a>
+
+            <!-- Tumblr-->
+            <a href="http://www.tumblr.com/share/link?url=https://simplesharebuttons.com&amp;title=Simple Share Buttons" target="_blank">
+                <img src="https://simplesharebuttons.com/images/somacro/tumblr.png" alt="Tumblr" />
+            </a>
+
+            <!-- Twitter -->
+            <a href="https://twitter.com/share?url=https://simplesharebuttons.com&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons" target="_blank">
+                <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+            </a>
+
+        </div>
+
+        <hr class="star-light">
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Erin.Z&Bill.L&Jacky.C 2016
+                    </div>
+                </div>
+            </div>
+        </div>
+        </footer>
+
+
+    </div>
+</div>
